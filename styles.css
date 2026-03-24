@@ -99,11 +99,17 @@ body {
   padding: var(--logo-inset);
 }
 
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
 .brand-logo {
   display: block;
   width: auto;
-  height: 76px;
-  max-width: min(100%, 420px);
+  height: 80px;
+  max-width: 100%;
 }
 
 .content-grid {
@@ -204,7 +210,7 @@ body {
   }
 
   .brand-logo {
-    height: 56px;
+    height: 60px;
   }
 
   .content-grid {
