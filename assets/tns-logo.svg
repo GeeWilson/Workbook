@@ -1,0 +1,7 @@
+<svg width="520" height="120" viewBox="0 0 520 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thornbury Nursing Services logo">
+  <rect width="520" height="120" fill="none"/>
+  <path d="M15 14C15 10.6863 17.6863 8 21 8H33C34.9106 8 36.7084 8.91064 37.8394 10.4546L93 84.5V14C93 10.6863 95.6863 8 99 8H108C111.314 8 114 10.6863 114 14V103C114 106.314 111.314 109 108 109H98C96.1182 109 94.3474 108.118 93.2142 106.617L36 30.5V103C36 106.314 33.3137 109 30 109H21C17.6863 109 15 106.314 15 103V14Z" fill="white"/>
+  <text x="132" y="42" fill="white" font-size="28" font-family="Inter, Arial, sans-serif" font-weight="700">Thornbury</text>
+  <text x="132" y="74" fill="white" font-size="28" font-family="Inter, Arial, sans-serif" font-weight="700">Nursing</text>
+  <text x="132" y="106" fill="white" font-size="28" font-family="Inter, Arial, sans-serif" font-weight="700">Services</text>
+</svg>
