@@ -1,0 +1,223 @@
+/*
+  Thornbury Nursing Services Brand Foundation Stylesheet
+  Token-first CSS so future iterations inherit brand guidelines.
+*/
+
+:root {
+  /* Primary palette */
+  --color-brand-navy: #003652;
+  --color-brand-navy-muted: #335e75;
+  --color-brand-blue: #2980c3;
+  --color-brand-pink: #c94c98;
+  --color-brand-pink-strong: #bc477f;
+
+  /* Greyscale */
+  --color-text-primary: #4d4d4d;
+  --color-text-secondary: #7b7b8c;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f5f6f8;
+  --color-border: #dddddd;
+
+  /* Typography */
+  --font-family-brand: "Proxima Nova", "Inter", "Segoe UI", Arial, sans-serif;
+  --font-size-heading-1: 42px;
+  --line-height-heading-1: 52px;
+  --font-size-heading-3: 18px;
+  --line-height-heading-3: 24px;
+  --font-size-body: 14px;
+  --line-height-body: 24px;
+
+  /* Layout spacing (from layout anatomy guidance) */
+  --page-margin-desktop: 27px;
+  --page-margin-tablet: 20px;
+  --page-margin-mobile: 18px;
+  --gutter-desktop: 22px;
+  --gutter-tablet: 22px;
+  --gutter-mobile: 16px;
+  --component-spacing-desktop: 22px;
+  --component-spacing-tablet: 20px;
+  --component-spacing-mobile: 22px;
+
+  /* Structural dimensions */
+  --app-bar-height: 120px;
+  --logo-inset: 20px;
+  --nav-max-width: 256px;
+
+  --radius-card: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--color-surface-muted);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-brand);
+}
+
+/* Typography utilities */
+.heading-1 {
+  margin: 0;
+  color: var(--color-brand-navy);
+  font-size: var(--font-size-heading-1);
+  line-height: var(--line-height-heading-1);
+  font-weight: 400;
+}
+
+.heading-3 {
+  margin: 0;
+  color: var(--color-brand-navy);
+  font-size: var(--font-size-heading-3);
+  line-height: var(--line-height-heading-3);
+  font-weight: 600;
+}
+
+.body-text {
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+/* Layout anatomy */
+.app-layout {
+  min-height: 100vh;
+}
+
+.app-bar {
+  height: var(--app-bar-height);
+  background: var(--color-brand-navy);
+  display: flex;
+  align-items: center;
+  padding: var(--logo-inset);
+}
+
+.logo-wireframe {
+  width: 120px;
+  height: 56px;
+  border: 2px dashed #ffffff;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(220px, 1fr);
+  gap: var(--gutter-desktop);
+  padding: var(--page-margin-desktop);
+}
+
+.body-region {
+  display: grid;
+  gap: var(--component-spacing-desktop);
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.breadcrumbs a {
+  color: var(--color-brand-blue);
+  text-decoration: none;
+}
+
+.breadcrumbs span {
+  color: var(--color-text-secondary);
+}
+
+.body-panel {
+  min-height: 460px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--component-spacing-desktop);
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.navigation-region {
+  width: 100%;
+  max-width: var(--nav-max-width);
+  justify-self: end;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--component-spacing-desktop);
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.nav-list a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@media (max-width: 1024px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: var(--gutter-tablet);
+    padding: var(--page-margin-tablet);
+  }
+
+  .body-region {
+    gap: var(--component-spacing-tablet);
+  }
+
+  .navigation-region {
+    max-width: none;
+    justify-self: stretch;
+    padding: var(--component-spacing-tablet);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-heading-1: 26px;
+    --line-height-heading-1: 40px;
+  }
+
+  .app-bar {
+    height: 96px;
+  }
+
+  .content-grid {
+    padding: var(--page-margin-mobile);
+    gap: var(--gutter-mobile);
+  }
+
+  .body-region,
+  .body-panel,
+  .navigation-region {
+    gap: var(--component-spacing-mobile);
+    padding: var(--component-spacing-mobile);
+  }
+}
