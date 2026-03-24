@@ -1,8 +1,6 @@
 /*
   Thornbury Nursing Services Brand Foundation Stylesheet
-  ------------------------------------------------------
-  This file is intentionally token-first. Future UI iterations should consume
-  these variables and utility classes to remain aligned to brand guidelines.
+  Token-first CSS so future iterations inherit brand guidelines.
 */
 
 :root {
@@ -13,50 +11,39 @@
   --color-brand-pink: #c94c98;
   --color-brand-pink-strong: #bc477f;
 
-  /* Functional + feedback palette */
-  --color-success: #2ed47a;
-  --color-warning: #ffb946;
-  --color-danger: #ff3f3f;
-
   /* Greyscale */
   --color-text-primary: #4d4d4d;
   --color-text-secondary: #7b7b8c;
   --color-surface: #ffffff;
   --color-surface-muted: #f5f6f8;
   --color-border: #dddddd;
-  --color-black: #000000;
 
-  /* Typography scale (desktop/tablet guidance) */
+  /* Typography */
   --font-family-brand: "Proxima Nova", "Inter", "Segoe UI", Arial, sans-serif;
   --font-size-heading-1: 42px;
   --line-height-heading-1: 52px;
-  --font-size-heading-2: 26px;
-  --line-height-heading-2: 34px;
   --font-size-heading-3: 18px;
   --line-height-heading-3: 24px;
   --font-size-body: 14px;
   --line-height-body: 24px;
-  --font-size-button: 16px;
-  --line-height-button: 20px;
 
-  /* Spacing scale */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 40px;
+  /* Layout spacing (from layout anatomy guidance) */
+  --page-margin-desktop: 27px;
+  --page-margin-tablet: 20px;
+  --page-margin-mobile: 18px;
+  --gutter-desktop: 22px;
+  --gutter-tablet: 22px;
+  --gutter-mobile: 16px;
+  --component-spacing-desktop: 22px;
+  --component-spacing-tablet: 20px;
+  --component-spacing-mobile: 22px;
 
-  /* Layout primitives */
+  /* Structural dimensions */
+  --app-bar-height: 120px;
+  --logo-inset: 20px;
+  --nav-max-width: 256px;
+
   --radius-card: 6px;
-  --radius-button: 4px;
-  --shadow-card: 0 1px 2px rgb(0 0 0 / 8%);
-  --container-max: 1100px;
-
-  /* Button spec from design library */
-  --button-primary-min-width: 238px;
-  --button-primary-height: 54px;
 }
 
 * {
@@ -71,92 +58,145 @@ body {
 
 body {
   min-height: 100vh;
-  font-family: var(--font-family-brand);
-  color: var(--color-text-primary);
   background: var(--color-surface-muted);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-brand);
 }
 
-/* Brand-safe typography utilities */
+/* Typography utilities */
 .heading-1 {
   margin: 0;
+  color: var(--color-brand-navy);
   font-size: var(--font-size-heading-1);
   line-height: var(--line-height-heading-1);
   font-weight: 400;
-  color: var(--color-brand-navy);
-}
-
-.heading-2 {
-  margin: 0;
-  font-size: var(--font-size-heading-2);
-  line-height: var(--line-height-heading-2);
-  font-weight: 400;
-  color: var(--color-brand-navy);
 }
 
 .heading-3 {
   margin: 0;
+  color: var(--color-brand-navy);
   font-size: var(--font-size-heading-3);
   line-height: var(--line-height-heading-3);
   font-weight: 600;
-  color: var(--color-brand-navy);
 }
 
 .body-text {
   margin: 0;
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
-  color: var(--color-text-primary);
 }
 
-.eyebrow {
-  margin: 0;
-  color: var(--color-brand-blue);
+/* Layout anatomy */
+.app-layout {
+  min-height: 100vh;
+}
+
+.app-bar {
+  height: var(--app-bar-height);
+  background: var(--color-brand-navy);
+  display: flex;
+  align-items: center;
+  padding: var(--logo-inset);
+}
+
+.logo-wireframe {
+  width: 120px;
+  height: 56px;
+  border: 2px dashed #ffffff;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
   font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
-/* Brand-safe layout primitives */
-.page-shell {
-  width: min(100% - 2 * var(--space-5), var(--container-max));
-  margin-inline: auto;
-  padding-block: var(--space-6);
+.content-grid {
   display: grid;
-  gap: var(--space-5);
+  grid-template-columns: minmax(0, 4fr) minmax(220px, 1fr);
+  gap: var(--gutter-desktop);
+  padding: var(--page-margin-desktop);
 }
 
-.app-header {
+.body-region {
   display: grid;
-  gap: var(--space-2);
+  gap: var(--component-spacing-desktop);
 }
 
-.card {
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.breadcrumbs a {
+  color: var(--color-brand-blue);
+  text-decoration: none;
+}
+
+.breadcrumbs span {
+  color: var(--color-text-secondary);
+}
+
+.body-panel {
+  min-height: 460px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-  padding: var(--space-5);
+  padding: var(--component-spacing-desktop);
+  display: grid;
+  gap: 12px;
+  align-content: start;
 }
 
-/* Brand-safe button primitive for future iterations */
-.button-primary {
-  min-width: var(--button-primary-min-width);
-  height: var(--button-primary-height);
-  padding-inline: var(--space-5);
-  border: 0;
-  border-radius: var(--radius-button);
-  background: var(--color-brand-pink);
-  color: #ffffff;
-  font-size: var(--font-size-button);
-  line-height: var(--line-height-button);
-  font-weight: 700;
-  cursor: pointer;
+.navigation-region {
+  width: 100%;
+  max-width: var(--nav-max-width);
+  justify-self: end;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--component-spacing-desktop);
+  display: grid;
+  gap: 14px;
+  align-content: start;
 }
 
-.button-primary:hover,
-.button-primary:focus-visible {
-  background: var(--color-brand-pink-strong);
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.nav-list a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@media (max-width: 1024px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: var(--gutter-tablet);
+    padding: var(--page-margin-tablet);
+  }
+
+  .body-region {
+    gap: var(--component-spacing-tablet);
+  }
+
+  .navigation-region {
+    max-width: none;
+    justify-self: stretch;
+    padding: var(--component-spacing-tablet);
+  }
 }
 
 @media (max-width: 768px) {
@@ -165,8 +205,19 @@ body {
     --line-height-heading-1: 40px;
   }
 
-  .page-shell {
-    width: min(100% - 2 * var(--space-4), var(--container-max));
-    padding-block: var(--space-5);
+  .app-bar {
+    height: 96px;
+  }
+
+  .content-grid {
+    padding: var(--page-margin-mobile);
+    gap: var(--gutter-mobile);
+  }
+
+  .body-region,
+  .body-panel,
+  .navigation-region {
+    gap: var(--component-spacing-mobile);
+    padding: var(--component-spacing-mobile);
   }
 }
